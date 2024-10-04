@@ -1,0 +1,102 @@
+
+// 회원가입
+아이디
+비밀번호
+이메일
+이름
+전화번호
+--
+키
+몸무게
+케어목적
+닉네임
+
+create table members (
+   user_num INT AUTO_INCREMENT PRIMARY KEY,
+   uid varchar(12),
+   upass varchar(15),
+   uname varchar(10),
+   mphone varchar(15),
+   email varchar(30), );
+
+create table memberinfo (
+   user_num INT AUTO_INCREMENT PRIMARY KEY,
+   height int(3),
+   weight int(3),
+   chk_info_column int(1),
+   unickname varchar(16), );
+   
+ 
+// 기록
+날짜
+활동 내용
+음식
+칼로리
+
+CREATE TABLE `board1` (
+  `board_id` bigint NOT NULL AUTO_INCREMENT,
+  `writer` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `content` text,
+  `regdate` datetime DEFAULT NULL,
+  `read_count` int DEFAULT NULL,
+  `photo1` longblob,
+  `photo2` longblob,
+  `photo3` longblob,
+  `user_num` bigint DEFAULT NULL,
+  PRIMARY KEY (`board_id`)
+);
+
+CREATE TABLE `board2` (
+  `board_id` bigint NOT NULL AUTO_INCREMENT,
+  `writer` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `content` text,
+  `regdate` datetime DEFAULT NULL,
+  `read_count` int DEFAULT NULL,
+  `photo3` longblob,
+  `photo2` longblob,
+  `photo1` longblob,
+  `user_num` bigint DEFAULT NULL,
+  PRIMARY KEY (`board_id`)
+);
+
+CREATE TABLE `memberinfo` (
+  `user_num` bigint NOT NULL AUTO_INCREMENT,
+  `height` int NOT NULL,
+  `weight` int NOT NULL,
+  `chk_info` int DEFAULT NULL,
+  `unickname` varchar(16) NOT NULL,
+  PRIMARY KEY (`user_num`)
+);
+
+CREATE TABLE `members` (
+  `user_num` bigint NOT NULL AUTO_INCREMENT,
+  `uid` varchar(12) NOT NULL,
+  `upass` varchar(15) NOT NULL,
+  `uname` varchar(10) NOT NULL,
+  `mphone` varchar(15) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  PRIMARY KEY (`user_num`)
+);
+
+ CREATE TABLE `record1` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_num` bigint DEFAULT NULL,
+  `regdate` datetime DEFAULT NULL,
+  `content` text,
+  PRIMARY KEY (`id`)
+);
+
+//2도 동일
+
+CREATE TABLE `reply1` (
+  `reply_id` bigint NOT NULL AUTO_INCREMENT,
+  `board_id` bigint DEFAULT NULL,
+  `unickname` varchar(255) DEFAULT NULL,
+  `content` text,
+  `regdate` datetime DEFAULT NULL,
+  PRIMARY KEY (`reply_id`)
+);
+
+//2도 동일
